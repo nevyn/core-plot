@@ -237,11 +237,11 @@ void MyCGPathApplierFunc(void *info, const CGPathElement *element)
         [newKey release];
 
         for ( size_t i = 0; i < numberOfComponents; i++ ) {
-            newKey = [[NSString alloc] initWithFormat:@"%@.decode[%u].lower", key, i];
+            newKey = [[NSString alloc] initWithFormat:@"%@.decode[%zu].lower", key, i];
             [self encodeCGFloat:decodeArray[i * 2] forKey:newKey];
             [newKey release];
 
-            newKey = [[NSString alloc] initWithFormat:@"%@.decode[%u].upper", key, i];
+            newKey = [[NSString alloc] initWithFormat:@"%@.decode[%zu].upper", key, i];
             [self encodeCGFloat:decodeArray[i * 2 + 1] forKey:newKey];
             [newKey release];
         }
@@ -493,11 +493,11 @@ void MyCGPathApplierFunc(void *info, const CGPathElement *element)
         decodeArray = malloc( numberOfComponents * 2 * sizeof(CGFloat) );
 
         for ( size_t i = 0; i < numberOfComponents; i++ ) {
-            newKey             = [[NSString alloc] initWithFormat:@"%@.decode[%u].lower", key, i];
+            newKey             = [[NSString alloc] initWithFormat:@"%@.decode[%zu].lower", key, i];
             decodeArray[i * 2] = [self decodeCGFloatForKey:newKey];
             [newKey release];
 
-            newKey                 = [[NSString alloc] initWithFormat:@"%@.decode[%u].upper", key, i];
+            newKey                 = [[NSString alloc] initWithFormat:@"%@.decode[%zu].upper", key, i];
             decodeArray[i * 2 + 1] = [self decodeCGFloatForKey:newKey];
             [newKey release];
         }
